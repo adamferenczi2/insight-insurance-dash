@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { format } from 'date-fns';
 
 interface TransactionChartProps {
@@ -17,8 +17,7 @@ export const TransactionChart: React.FC<TransactionChartProps> = ({ data }) => {
   const chartData = data.map(item => ({
     date: format(item.date, 'MM/dd'),
     policies: item.policies,
-    claims: item.claims,
-    amount: item.amount / 1000 // Convert to thousands
+    claims: item.claims
   }));
 
   return (
